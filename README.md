@@ -63,7 +63,7 @@ installed.
 - To control the `\pulsar` Ndef, TouchOSC was used.
   - In TouchOSC you therefore need to create
     - one `fader` object (which address is to be put in the path argument of the `\fader1` OSCdef),
-    - one `xy` object (which address is to be put in the path argument of the `\xyPulsar` OSCdef) and
+    - one `xy` object (which address is to be put in the path argument of the `\xy1` OSCdef) and
     - six `button` objects (which address are to be put in the path arguments of the `\button1`, `\button2`, etc OSCdefs).
 	- Also make sure to set your computer's IP-address as well as the right port in TouchOSC (here port `9999` was used, but you can use any free port in your current network).
 
