@@ -1,5 +1,3 @@
-
-
 The contained .wav-files by Hubertus Dreyer (berge_mono.wav, finnegansSake_mono.wav and signature_mono.wav) and Yi-Chuan Yang (trumpet_mono.wav) are licensed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) (https://creativecommons.org/licenses/by-sa/4.0).
 
 ______________________________________________________________
@@ -10,7 +8,7 @@ The contained .wav-files birds_mono.wav, fire_mono.wav, water_mono.wav are licen
 ______________________________________________________________
 
 
-The contained scd-files by Luis KŸffner are licensed under a GNU General Public License Version 3 (GNU GPL 3).
+The contained scd-files by Luis KÅ¸ffner are licensed under a GNU General Public License Version 3 (GNU GPL 3).
 
 ______________________________________________________________
 
