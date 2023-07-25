@@ -132,7 +132,7 @@ Tdef(\setup, {
 		("current pulsar volume: " ++~pulsarVolBus.getSynchronous).postln;
 	}, path: '/fader1', recvPort: 9999);
 
-	OSCdef(\xyPulsar, {
+	OSCdef(\xy1, {
 		arg msg, time, addr, recvPort;
 		~fundFreqBus.set(msg[1].linexp(0.0, 1.0, 1.0, 3000.0));
 		~formFreqBus.set(msg[2].linexp(0.0, 1.0, 1.0, 10000.0));
