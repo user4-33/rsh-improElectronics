@@ -19,8 +19,8 @@ The setup consists of the following parts and works with [SuperCollider](https:/
   - A setup file for all the things needed to be loaded in the background.
 
 - rsh-improElectronics_midiSetup.scd
-  - A file to assign parameters to a MIDI-controller.<br>
-  Note that this is written compatible with a Behringer X-Touch Mini.<br>
+  - A file to assign parameters to a MIDI-controller.<br />
+  Note that this is written compatible with a Behringer X-Touch Mini.<br />
   If you don't have access to such, you'll have to rewrite this file and change all MIDIdefs to the corresponding MIDI Note-Numbers and/or MIDI channels as well as the feedback-strings if desired.
 
 - rsh-improElectronics_startupFile.scd
@@ -45,9 +45,9 @@ The setup consists of the following parts and works with [SuperCollider](https:/
 
 To have all things work correctly, you need to have the following SuperCollider extensions
 - [sc3-plugins](https://github.com/supercollider/sc3-plugins/releases)
-- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest)<br> 
-as well as the following quark<br> 
-- [StartupFile](https://github.com/aiberlin/StartupFile)<br>
+- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest)<br />
+as well as the following quark<br />
+- [StartupFile](https://github.com/aiberlin/StartupFile)<br />
 installed.
 
 
