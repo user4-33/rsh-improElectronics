@@ -18,9 +18,9 @@ The setup consists of the following parts and works with [SuperCollider](https:/
   - A setup file for all the things needed to be loaded in the background.
 
 - rsh-improElectronics_midiSetup.scd
-  - A file to assign parameters to a MIDI-controller.
-  - Note that this is written compatible with a Behringer X-Touch Mini.
-  - If you don't have access to such, you'll have to rewrite this file and change all MIDIdefs to the corresponding MIDI Note-Numbers and/or MIDI channels as well as the feedback-strings if desired.
+  - A file to assign parameters to a MIDI-controller. <br>
+  Note that this is written compatible with a Behringer X-Touch Mini. <br>
+  If you don't have access to such, you'll have to rewrite this file and change all MIDIdefs to the corresponding MIDI Note-Numbers and/or MIDI channels as well as the feedback-strings if desired.
 
 - rsh-improElectronics_startupFile.scd
   - A startup file which sets up even more things in the background. This file has to be put into
