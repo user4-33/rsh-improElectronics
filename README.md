@@ -63,9 +63,9 @@ installed.
 
 - To control the `\pulsar` Ndef, TouchOSC was used.
   - In TouchOSC you therefore need to create
-    - one `fader` object (which address is to be put in the path argument of the `\fader1` OSCdef),
-    - one `xy` object (which address is to be put in the path argument of the `\xy1` OSCdef) and
-    - six `button` objects (which address are to be put in the path arguments of the `\button1`, `\button2`, etc OSCdefs).
+    - one `fader` object (which address is to be put in the `path` argument of the `\fader1` OSCdef),
+    - one `xy` object (which address is to be put in the `path` argument of the `\xy1` OSCdef) and
+    - six `button` objects (which addresses are to be put in the `path` arguments of the `\button1`, `\button2`, etc OSCdefs).
 	- Also make sure to set your computer's IP-address as well as the right port in TouchOSC (here port `9999` was used, but you can use any free port in your current network).
 
 - To test this setup in your studio environment, you'd have to simulate some live inputs. I can recommend using an internal feedback routing done with BlackHole or Soundflower. Set the output from your DAW which is playing some audio to BlackHole/SoundFlower and take BlackHole/Soundflower as your input device in SuperCollider.
