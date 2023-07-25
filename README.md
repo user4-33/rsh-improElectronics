@@ -45,9 +45,9 @@ The setup consists of the following parts and works with [SuperCollider](https:/
 
 To have all things work correctly, you need to have the following SuperCollider extensions
 - [sc3-plugins](https://github.com/supercollider/sc3-plugins/releases)
-- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest) <br> 
-as well as the following quark <br> 
-- [StartupFile](https://github.com/aiberlin/StartupFile) <br>
+- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest)<br> 
+as well as the following quark<br> 
+- [StartupFile](https://github.com/aiberlin/StartupFile)<br>
 installed.
 
 
