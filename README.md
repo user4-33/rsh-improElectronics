@@ -1,6 +1,6 @@
 # rsh-improElectronics
 
-Version 1.0
+Version 1.0.0
 
 The rsh-improElectronics is a straightforward SuperCollider live improvisation architecture holding several live-effects, sample-playback-structures and electronic instruments. The setup consists of a bunch of SuperCollider files which are meant to be used while performing live with acoustic instruments. You therefore need some microphones (for example DPA-4099), a compatible audio-interface and a flexible number of speakers.
 
@@ -8,6 +8,7 @@ The setup was developed by Luis Küffner (former student in Musikinformatik, Pro
 
 If you need any advice or support, please contact mail@luiskueffner.com or visit [GitHub](https://github.com/user4-33/rsh-improElectronics). 
 
+## Overview
 The setup consists of the following parts and works with [SuperCollider](https://supercollider.github.io/) 3.13.0:
 
 - rsh-improElectronics_main.scd
@@ -26,9 +27,9 @@ The setup consists of the following parts and works with [SuperCollider](https:/
     - `~/Library/Application Support/SuperCollider/startup.scd` for macOS,
     - `~/.config/SuperCollider/startup.scd`, according to the xdg base directory specification for Linux or
     - `C:\\SuperCollider\\startup.scd` (or similar, depending on the location of the SuperCollider installation) for Windows
-  - and to be chosen via "File" -> "Open startup file" in SuperCollider. Of course, you can also use your own startup file but take a look at this one first.
+  - and to be chosen via `File` -> `Open startup file` in SuperCollider. Of course, you can also use your own startup file but take a look at this one first.
 
-- a folder called "buffers"
+- a folder called `buffers`
   - This folder contains several .wav-soundfiles/buffers for playback and source-target-resynthesis.
 
 - rsh-improElectronics_speakerTesting.scd
@@ -39,38 +40,34 @@ The setup consists of the following parts and works with [SuperCollider](https:/
 
 - this README.md
 
+<br>
 
 To have all things work correctly, you need to have the following SuperCollider extensions
 - [sc3-plugins](https://github.com/supercollider/sc3-plugins/releases)
-- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest)
-as well as the following quark
-- StartupFile
+- [FluCoMa](https://github.com/flucoma/flucoma-sc/releases/latest) <br> 
+as well as the following quark <br> 
+- [StartupFile](https://github.com/aiberlin/StartupFile) <br>
 installed.
 
 
 
 
 
-Some more notes:
+## Some more notes
 - This whole architecture was constructed in a flexible way and is meant to be adjusted according to your current live improvisation setup.
 
+- To start your performance after everything is connected, follow the comments regarding the order of execution in `rsh-improElectronics_main.scd` and `rsh-improElectronics_setup.scd`.
 
-- To start your performance after everything is connected, follow the comments regarding the order of execution in "rsh-improElectronics_main.scd" and "rsh-improElectronics_setup.scd".
+- In `rsh-improElectronics_main.scd` some lines are out-commented. They are often alternatives that one can also use or modify (like anything else).
 
-
-- In "rsh-improElectronics_main.scd" some lines are out-commented. They are often alternatives that one can also use or modify (like anything else).
-
-
-- To control the \pulsar Ndef, TouchOSC was used.
-	In TouchOSC you therefore need to create 
-		- one fader object (which address is to be put in the path argument of the \fader1 OSCdef),
-		- one xy object (which address is to be put in the path argument of the \xyPulsar OSCdef) and
-		- six button objects (which address are to be put in the path arguments of the \button1, \button2, etc OSCdefs).
-	Also make sure to set your computer's IP-address as well as the right port in TouchOSC (here port 9999 was used, but you can use any free port in your current network).
-
+- To control the `\pulsar` Ndef, TouchOSC was used.
+  - In TouchOSC you therefore need to create
+    - one `fader` object (which address is to be put in the path argument of the `\fader1` OSCdef),
+    - one `xy` object (which address is to be put in the path argument of the `\xyPulsar` OSCdef) and
+    - six `button` objects (which address are to be put in the path arguments of the `\button1`, `\button2`, etc OSCdefs).
+	- Also make sure to set your computer's IP-address as well as the right port in TouchOSC (here port `9999` was used, but you can use any free port in your current network).
 
 - To test this setup in your studio environment, you'd have to simulate some live inputs. I can recommend using an internal feedback routing done with BlackHole or Soundflower. Set the output from your DAW which is playing some audio to BlackHole/SoundFlower and take BlackHole/Soundflower as your input device in SuperCollider.
-
 
 - Enjoy! =)
 
