@@ -1,13 +1,10 @@
 ![gitHub](https://github.com/user4-33/rsh-improElectronics/assets/119926454/a0020673-daae-412c-a304-e01612e475a8)
 # rsh-improElectronics
+The rsh-improElectronics offers an accessible SuperCollider-based live-electronics architecture for improvisation ensembles. Incorporating a range of live-effects, sample-playback structures, and electronic instruments, the setup additionally requires several microphones (e.g., DPA 4099), a compatible audio interface as well as a flexible amount of loudspeakers.
 
-Version 1.0.0
+The setup was developed by [Luis Küffner](https://luiskueffner.com) (former student in Musikinformatik, Prof. Julian Rohrhuber, institute for music and media) within the fellowship for innovations in digital university teaching called „Digitalgestützes Improvisieren“ by Dr. Hubertus Dreyer. The project was funded between April 1st 2022 and March 31st 2023 at Robert Schumann Hochschule Düsseldorf.
 
-The rsh-improElectronics is a straightforward SuperCollider live improvisation architecture holding several live-effects, sample-playback-structures and electronic instruments. The setup consists of a bunch of SuperCollider files which are meant to be used while performing live with acoustic instruments. You therefore need some microphones (for example DPA-4099), a compatible audio-interface and a flexible number of speakers.
-
-The setup was developed by Luis Küffner (former student in Musikinformatik, Prof. Julian Rohrhuber, institute for music and media) within the fellowship for innovations in digital university teaching called „Digitalgestützes Improvisieren“ by Dr. Hubertus Dreyer. The project was funded between April 1st 2022 and March 31st 2023 at the Robert Schumann Hochschule Düsseldorf.
-
-If you need any advice or support, please contact mail@luiskueffner.com or visit [GitHub](https://github.com/user4-33/rsh-improElectronics). 
+If you need any advice or support, please contact mail@luiskueffner.com or open an issue on [GitHub](https://github.com/user4-33/rsh-improElectronics).
 
 ## Overview
 The setup consists of the following parts and works with [SuperCollider](https://supercollider.github.io/) 3.13.0:
@@ -30,7 +27,7 @@ The setup consists of the following parts and works with [SuperCollider](https:/
     - `C:\\SuperCollider\\startup.scd` (or similar, depending on the location of the SuperCollider installation) for Windows
   - and to be chosen via `File` -> `Open startup file` in SuperCollider. Of course, you can also use your own startup file but take a look at this one first.
 
-- a folder called `buffers`
+- a `buffers` directory
   - This folder contains several .wav-soundfiles/buffers for playback and source-target-resynthesis.
 
 - rsh-improElectronics_speakerTesting.scd
@@ -69,11 +66,5 @@ installed.
 	- Also make sure to set your computer's IP-address as well as the right port in TouchOSC (here port `9999` was used, but you can use any free port in your current network).
 
 - To test this setup in your studio environment, you'd have to simulate some live inputs. I can recommend using an internal feedback routing done with BlackHole or Soundflower. Set the output from your DAW which is playing some audio to BlackHole/SoundFlower and take BlackHole/Soundflower as your input device in SuperCollider.
-
-- Enjoy! =)
-
-
-
-
 
 Berlin, 25th of July 2023
