@@ -2,7 +2,7 @@
 # rsh-improElectronics
 The rsh-improElectronics offers an accessible SuperCollider-based live-electronics architecture for improvisation ensembles. Incorporating a range of live-effects, sample-playback structures, and electronic instruments, the setup additionally requires several microphones (e.g., DPA 4099), a compatible audio interface as well as a flexible amount of loudspeakers.
 
-The setup was developed by [Luis Küffner](https://luiskueffner.com) (former student in Musikinformatik, Prof. Julian Rohrhuber, institute for music and media) within the fellowship for innovations in digital university teaching called „Digitalgestützes Improvisieren“ by Dr. Hubertus Dreyer. The project was funded between April 1st 2022 and March 31st 2023 at Robert Schumann Hochschule Düsseldorf.
+The setup was developed by [Luis Küffner](https://luiskueffner.com) (former student in Musikinformatik, Prof. Julian Rohrhuber, [institute for music and media](https://www.rsh-duesseldorf.de/institute/institut-fuer-musik-und-medien)) within the fellowship for innovations in digital university teaching called „Digitalgestützes Improvisieren“ by Dr. Hubertus Dreyer. The project was funded between April 1st 2022 and March 31st 2023 at Robert Schumann Hochschule Düsseldorf.
 
 If you need any advice or support, please contact mail@luiskueffner.com or open an issue on [GitHub](https://github.com/user4-33/rsh-improElectronics).
 
