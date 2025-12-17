@@ -302,7 +302,7 @@ Tdef(\midiSetup, {
 		);
 	);
 
-	"MIDI Setup is ready!".postln;
+	"\n\n➤➤➤ MIDI Setup is ready!\n\n\n".postln;
 
 }).play;
 )
