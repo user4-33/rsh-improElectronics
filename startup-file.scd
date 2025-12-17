@@ -218,6 +218,7 @@ s.doWhenBooted({
 
 
 	// Reverb
+	Ndef(\reverb).group_(~effectGroup);
 	Ndef(\reverb, {
 		var sig;
 
@@ -240,9 +241,10 @@ s.doWhenBooted({
 
 		sig = sig * ~revVol.kr(1) * ~mainVol.kr(1); // Use MIDI encoder A-2
 		sig * -1.dbamp;
-	}).play(out: ~outBus, group: ~effectGroup);
+	}).play(out: ~outBus);
 
 	// Delay
+	Ndef(\delay).group_(~effectGroup);
 	Ndef(\delay, {
 		var sig;
 
@@ -257,7 +259,7 @@ s.doWhenBooted({
 		LocalOut.ar(sig);
 		sig = Limiter.ar(sig, 1);
 		sig * -1.dbamp;
-	}).play(out: ~outBus, group: ~effectGroup);
+	}).play(out: ~outBus);
 
 
 
