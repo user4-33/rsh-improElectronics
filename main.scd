@@ -26,7 +26,7 @@ Ndef(\horizontalReflection, {
 	);
 
 	sig = sig * 0.dbamp * ~mainVol.kr(1);
-	sig = PanX.ar(~numChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
 	sig = Limiter.ar(sig, 1.0);
 
 	Out.ar(\delBus.kr, sig * 0.4 * EnvGate.new);
@@ -72,7 +72,7 @@ Ndef(\frequencyScrambling, {
 
 	chain = IFFT(chain);
 	chain = chain * -3.dbamp * ~mainVol.kr(1);
-	chain = PanX.ar(~numChannels, chain, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
+	chain = PanX.ar(~numOutputChannels, chain, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
 	chain = Limiter.ar(chain, 1.0);
 
 	Out.ar(\delBus.kr, chain * 0.3 * EnvGate.new);
@@ -113,7 +113,7 @@ Ndef(\spectralEnhancement, {
 
 	chain = IFFT(chain);
 	chain = chain * -6.dbamp * ~mainVol.kr(1);
-	chain = PanX.ar(~numChannels, chain, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
+	chain = PanX.ar(~numOutputChannels, chain, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
 	chain = Limiter.ar(chain, 1.0);
 
 	Out.ar(\delBus.kr, chain * 0.3 * EnvGate.new);
@@ -175,7 +175,7 @@ Ndef(\granulation, {
 	);
 
 	sig = sig * env * ~mainVol.kr(1);
-	sig = PanX.ar(~numChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: -2.dbamp);
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: -2.dbamp);
 	sig = Limiter.ar(sig, 1.0);
 
 	Out.ar(\delBus.kr, sig * 0.0 * EnvGate.new);
@@ -208,7 +208,7 @@ Ndef(\spectrumInterpolation, {
 	sig = FluidAudioTransport.ar(inputA, inputB, ~interpolBus.kr(1)); // Use MIDI encoder A-8
 
 	sig = sig * -2.dbamp * ~mainVol.kr(1);
-	sig = PanX.ar(~numChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
 	sig = Limiter.ar(sig, 1.0);
 
 	Out.ar(\delBus.kr, sig * 0.1 * EnvGate.new);
@@ -232,7 +232,7 @@ Ndef(\template, {
 	sig = HPF.ar(input, freq: 30);
 
 	sig = sig * 0.dbamp * ~mainVol.kr(1);
-	sig = PanX.ar(~numChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
 	sig = Limiter.ar(sig, 1.0);
 
 	Out.ar(\delBus.kr, sig * 0.0 * EnvGate.new);
@@ -293,7 +293,7 @@ Node.basicNew(s, 1036).free;
 		env = Env([0, 1, 1, 0], [0.2, ~dur-0.3, 0.1], 'sin').kr(2);
 		sig = PlayBuf.ar(1, bufnum, doneAction: 2);
 		sig = sig * ~mainVol.kr(1);
-		sig = PanX.ar(~numChannels, sig * env, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
+		sig = PanX.ar(~numOutputChannels, sig * env, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
 		sig = Limiter.ar(sig, 1);
 		Out.ar(\outBus.kr, sig);
 	}).play(s, [\bufnum, ~target, \amp, -2.dbamp, \outBus, ~outBus]);
@@ -327,7 +327,7 @@ Node.basicNew(s, 1036).free;
 		env = Env([0, 1, 1, 0], [0.2, ~dur-0.4, 0.2], 'sin').kr(2);
 		sig = PlayBuf.ar(1, bufnum, doneAction: 2);
 		sig = sig * ~mainVol.kr(1);
-		sig = PanX.ar(~numChannels, sig * env, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
+		sig = PanX.ar(~numOutputChannels, sig * env, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: amp);
 		sig = Limiter.ar(sig, 1);
 		Out.ar(\outBus.kr, sig);
 	}).play(s, [\bufnum, ~output, \amp, 1, \outBus, ~outBus]);
@@ -361,7 +361,7 @@ Ndef(\pulsar, {
 	sig = GrainBuf.ar(1, trig, grDur, waveBuf, rate, 0, 4, envbufnum: envBuf);
 
 	sig = sig * -12.dbamp * ~mainVol.kr(1);
-	sig = PanX.ar(~numChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: ~pulsarVolBus.kr(1));
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: ~pulsarVolBus.kr(1));
 	sig = Limiter.ar(sig, 1);
 }).play(out: ~outBus, group: ~defaultGroup);
 )
