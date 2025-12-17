@@ -16,7 +16,7 @@ Ndef(\speakerTest).free;
 
 
 // n-channels:
-~nChannels = 4;
+~nChannels = ~numOutputChannels;
 Ndef(\speakerTest, { PanX.ar(~nChannels, PinkNoise.ar(0.10), pos: MouseX.kr(0, 1).poll, level: 0.8, width: 2.0) }).play;
 Ndef(\speakerTest, { PanX.ar(~nChannels, PinkNoise.ar(0.1), pos: 0.5, level: 0.8, width: 2.0) }).play;
 Ndef(\speakerTest, { PinkNoise.ar(0.2) ! ~nChannels }).play;
