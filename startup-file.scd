@@ -14,12 +14,12 @@ s.options.memSize = 65536 * 4;
 // The current latency of the server.
 s.latency = 0.05;
 
-~numInputChannels = 8;
+~numInputChannels = 4;
 ~numOutputChannels = 2;
 s.options.numInputBusChannels = ~numInputChannels;
 s.options.numOutputBusChannels = ~numOutputChannels;
 
-// s.options.inDevice = "YOUR DEVICE";
+s.options.inDevice = "BlackHole 16ch";
 // s.options.outDevice = "YOUR DEVICE";
 
 // Current project directory
@@ -28,7 +28,7 @@ s.options.numOutputBusChannels = ~numOutputChannels;
 s.doWhenBooted({
 
 	Buffer.freeAll;
-	Ndef.clear;
+	// Ndef.clear;
 	Ndef.defaultReshaping = \elastic;
 
 	// Inputs
@@ -41,8 +41,7 @@ s.doWhenBooted({
 	~outBus = 0;
 
 	// Groups
-	~defaultGroup = Group.new;
-	~effectGroup = Group.new(~defaultGroup, \addAfter);
+	~effectGroup = Group.after(s.defaultGroup);
 
 	// Ndef fadeTime
 	~ndefFadeTime = 3.0;
