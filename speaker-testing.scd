@@ -1,5 +1,4 @@
-// rsh-improElectronics
-// Some simple code for testing your current speaker setup.
+// rsh-improElectronics – Testing your current speaker setup
 
 
 // check your inputs...

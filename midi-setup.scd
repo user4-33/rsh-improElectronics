@@ -1,5 +1,4 @@
-// rsh-improElectronics
-// This file assigns parameters to a Behringer X-Touch Mini MIDI-controller.
+// rsh-improElectronics – MIDI Setup (for Behringer X-Touch Mini)
 // If you are about to use another MIDI controller you'll have to change all MIDIdefs to the corresponding MIDI Note-Numbers and/or MIDI channels as well as the feedback-strings if desired.
 // Expressions like "B-B-7" are named like this: First letter A or B indicating the MIDI Layer. Second one tells if top (T) or bottom (B) row. Last numbers tells you which column exactly.
 

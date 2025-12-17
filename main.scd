@@ -1,5 +1,4 @@
-// rsh-improElectronics
-// This is the main file for performing live.
+// rsh-improElectronics – Main file for live performing
 // Make sure to follow the order of execution within this file and "rsh-improElectronics_setup". The setup starts in the setup file
 // Note that some lines are out commented. They are often alternatives that one can also use/modify.
 // Expressions like "B-B-7" are named like this: First letter A or B indicating the MIDI Layer. Second one tells if top (T) or bottom (B) row. Last numbers tells you which column exactly.
