@@ -217,6 +217,50 @@ s.doWhenBooted({
 
 
 
+	// Reverb
+	Ndef(\reverb, {
+		var sig;
+
+		sig = ~revBus.ar(~numOutputChannels);
+
+		sig = 0 ! ~numOutputChannels + JPverb.ar(
+			sig,
+			t60: 5.0,
+			damp: 0,
+			size: 1.2,
+			earlyDiff: 0.70,
+			modDepth: ~revModDepth.kr(1), // Use MIDI encoder A-5
+			modFreq: ~revModFreq.kr(1), // Use MIDI encoder A-6
+			low: 0.4,
+			mid: 1,
+			high: 1,
+			lowcut: 500,
+			highcut: 3000
+		);
+
+		sig = sig * ~revVol.kr(1) * ~mainVol.kr(1); // Use MIDI encoder A-2
+		sig * -1.dbamp;
+	}).play(out: ~outBus, group: ~effectGroup);
+
+	// Delay
+	Ndef(\delay, {
+		var sig;
+
+		sig = ~delBus.ar(~numOutputChannels) + LocalIn.ar(~numOutputChannels, 0);
+
+		sig = DelayL.ar(sig, ~maxDelay.kr(1), { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
+
+		sig = HPF.ar(sig, 200);
+		sig = MoogVCF.ar(sig, 5500, 0.3);
+
+		sig = sig.tanh * ~delVol.kr(1) * ~mainVol.kr(1); // Use MIDI encoder A-3
+		LocalOut.ar(sig);
+		sig = Limiter.ar(sig, 1);
+		sig * -1.dbamp;
+	}).play(out: ~outBus, group: ~effectGroup);
+
+
+
 	// Load MIDI Setup
 	(~projectDir +/+ "midi-setup.scd").load;
 
@@ -249,7 +293,7 @@ s.doWhenBooted({
 
 
 
-	"\n\n➤➤➤ Ready to evaluate some instruments!".postln;
+	"➤➤➤ Ready to evaluate some instruments!".postln;
 
 });
 )
