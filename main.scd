@@ -1,11 +1,13 @@
 // rsh-improElectronics – Main file for live performing
-// Make sure to follow the order of execution within this file and "rsh-improElectronics_setup". The setup starts in the setup file
-// Note that some lines are out commented. They are often alternatives that one can also use/modify.
-// Expressions like "B-B-7" are named like this: First letter A or B indicating the MIDI Layer. Second one tells if top (T) or bottom (B) row. Last numbers tells you which column exactly.
+
+// Before booting the server and evaluating snippets, ensure correct input and output configurations in your startup file.
+
+// Note that some lines are out commented. They are often alternatives that one can also use or modify.
+
+// Expressions like "B-B-7" are shortcuts of corresponding buttons on a Behringer X-Touch Mini, an affordable MIDI controller that is used in this setup. First letter A or B indicating the MIDI layer. Second one tells if top (T) or bottom (B) row. Last numbers tell you which column exactly.
 
 
 
-// #2: ... then choose and run your desired instruments and go back to the setup file, search for "#3:" ...
 (
 // Horizontal reflection. Shifts your live-input by ~shift
 ~shift = -0.5.midiratio;
