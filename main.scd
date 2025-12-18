@@ -13,7 +13,7 @@
 Ndef(\horizontalReflection, {
 	var input, buffer, sig;
 
-	input = SoundIn.ar(0);
+	input = SoundIn.ar(~input4);
 	input = HPF.ar(input, freq: 30);
 
 	buffer = RecordBuf.ar(input, ~b_shift.bufnum, loop: 1);
@@ -33,7 +33,7 @@ Ndef(\horizontalReflection, {
 	Out.ar(\revBus.kr, sig * 1.0 * EnvGate.new);
 
 	sig * EnvGate.new
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(0.02);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(0.02);
 
 // Constant rebuilding to vanish clicks
 Tdef(\rebuild, {
@@ -79,7 +79,7 @@ Ndef(\frequencyScrambling, {
 	Out.ar(\revBus.kr, chain * 1.0 * EnvGate.new);
 
 	chain * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(~ndefFadeTime);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
 )
 
 Ndef(\frequencyScrambling).free;
@@ -120,7 +120,7 @@ Ndef(\spectralEnhancement, {
 	Out.ar(\revBus.kr, chain * 0.8 * EnvGate.new);
 
 	chain * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(~ndefFadeTime);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
 )
 
 Ndef(\spectralEnhancement).free;
@@ -182,7 +182,7 @@ Ndef(\granulation, {
 	Out.ar(\revBus.kr, sig * 1.0 * EnvGate.new);
 
 	sig * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(~ndefFadeTime);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
 )
 
 Ndef(\granulation).free;
@@ -215,7 +215,7 @@ Ndef(\spectrumInterpolation, {
 	Out.ar(\revBus.kr, sig * 0.4 * EnvGate.new);
 
 	sig * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(~ndefFadeTime);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
 )
 
 Ndef(\spectrumInterpolation).free;
@@ -239,7 +239,7 @@ Ndef(\template, {
 	Out.ar(\revBus.kr, sig * 1.0 * EnvGate.new);
 
 	sig * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus, group: ~defaultGroup).fadeTime_(~ndefFadeTime);
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
 )
 
 Ndef(\template).free;
@@ -363,11 +363,7 @@ Ndef(\pulsar, {
 	sig = sig * -12.dbamp * ~mainVol.kr(1);
 	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0), level: ~pulsarVolBus.kr(1));
 	sig = Limiter.ar(sig, 1);
-}).play(out: ~outBus, group: ~defaultGroup);
+}).play(out: ~outBus);
 )
 
 Ndef(\pulsar).free;
-
-
-
-
