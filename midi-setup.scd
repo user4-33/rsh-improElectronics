@@ -1,18 +1,24 @@
 // rsh-improElectronics – MIDI Setup (for Behringer X-Touch Mini)
+
+// This controller was chosen as an example MIDI controller because of its affordability and accessibility.
+
 // If you are about to use another MIDI controller you'll have to change all MIDIdefs to the corresponding MIDI Note-Numbers and/or MIDI channels as well as the feedback-strings if desired.
-// Expressions like "B-B-7" are named like this: First letter A or B indicating the MIDI Layer. Second one tells if top (T) or bottom (B) row. Last numbers tells you which column exactly.
+
+// Expressions like "B-B-7" are named like this: First letter A or B indicating the mIDI Layer. Second one tells if top (T) or bottom (B) row. Last numbers tell you which column exactly.
 
 
-// get ALL MIDI data for reassignment:
+// get ALL MIDI data for reassignment or debugging:
 // MIDIFunc.trace(true);
 // MIDIFunc.trace(false);
 
 
 (
-// X-Touch Mini
 Tdef(\midiSetup, {
+
 	MIDIClient.init; // takes some time...
+
 	2.wait;
+
 	(
 		MIDIIn.connectAll;
 		~midiNoteSlots = Array.fill(127, { nil });
