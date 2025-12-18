@@ -80,7 +80,7 @@ s.doWhenBooted({
 
 
 
-	// s.sync;
+	s.sync;
 
 
 
@@ -102,7 +102,7 @@ s.doWhenBooted({
 
 
 
-	// s.sync;
+	s.sync;
 
 
 
@@ -229,8 +229,8 @@ s.doWhenBooted({
 			damp: 0,
 			size: 1.2,
 			earlyDiff: 0.70,
-			// modDepth: ~revModDepth.kr(1), // Use MIDI encoder A-5
-			// modFreq: ~revModFreq.kr(1), // Use MIDI encoder A-6
+			modDepth: ~revModDepth.kr(1), // Use MIDI encoder A-5
+			modFreq: ~revModFreq.kr(1), // Use MIDI encoder A-6
 			low: 0.4,
 			mid: 1,
 			high: 1,
@@ -249,8 +249,7 @@ s.doWhenBooted({
 
 		sig = ~delBus.ar(~numOutputChannels) + LocalIn.ar(~numOutputChannels, 0);
 
-		// sig = DelayL.ar(sig, ~maxDelay.kr(1), { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
-		sig = DelayL.ar(sig, 3.0, { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
+		sig = DelayL.ar(sig, ~maxDelay.kr(1), { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
 
 		sig = HPF.ar(sig, 200);
 		sig = MoogVCF.ar(sig, 5500, 0.3);
