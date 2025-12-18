@@ -19,11 +19,11 @@ s.latency = 0.05;
 s.options.numInputBusChannels = ~numInputChannels;
 s.options.numOutputBusChannels = ~numOutputChannels;
 
-s.options.inDevice = "BlackHole 16ch";
+// s.options.inDevice = "YOUR DEVICE";
 // s.options.outDevice = "YOUR DEVICE";
 
 // Current project directory
-~projectDir = "/Users/luis/Nextcloud/Künstlerische Arbeit/Impro-Elektronik/rsh-improElectronics";
+~projectDir = "/path/to/your/project/directory";
 
 s.doWhenBooted({
 
