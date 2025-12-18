@@ -3,13 +3,13 @@
 "\n\n➤➤➤ rsh-improElectronics startup file loaded!\n\n\n".postln;
 
 (
-s.options.sampleRate = 44100;
+s.options.sampleRate = 48000;
 
 // The number of kilobytes of real time memory allocated to the server. This memory is used to allocate synths and any memory that unit generators themselves allocate (for instance in the case of delay ugens which do not use buffers, such as CombN), and is separate from the memory used for buffers. Setting this too low is a common cause of 'exception in real time: alloc failed' errors. The default is 8192.
 s.options.memSize = 65536 * 4;
 
 // The number of samples in one control period. The default is 64.
-// s.options.blockSize = 64 * 2;
+s.options.blockSize = 64 * 2;
 
 // The current latency of the server.
 s.latency = 0.05;
@@ -28,7 +28,7 @@ s.options.inDevice = "BlackHole 16ch";
 s.doWhenBooted({
 
 	Buffer.freeAll;
-	// Ndef.clear;
+	Ndef.clear;
 	Ndef.defaultReshaping = \elastic;
 
 	// Inputs
@@ -80,7 +80,7 @@ s.doWhenBooted({
 
 
 
-	s.sync;
+	// s.sync;
 
 
 
@@ -102,7 +102,7 @@ s.doWhenBooted({
 
 
 
-	s.sync;
+	// s.sync;
 
 
 
@@ -229,8 +229,8 @@ s.doWhenBooted({
 			damp: 0,
 			size: 1.2,
 			earlyDiff: 0.70,
-			modDepth: ~revModDepth.kr(1), // Use MIDI encoder A-5
-			modFreq: ~revModFreq.kr(1), // Use MIDI encoder A-6
+			// modDepth: ~revModDepth.kr(1), // Use MIDI encoder A-5
+			// modFreq: ~revModFreq.kr(1), // Use MIDI encoder A-6
 			low: 0.4,
 			mid: 1,
 			high: 1,
@@ -249,7 +249,8 @@ s.doWhenBooted({
 
 		sig = ~delBus.ar(~numOutputChannels) + LocalIn.ar(~numOutputChannels, 0);
 
-		sig = DelayL.ar(sig, ~maxDelay.kr(1), { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
+		// sig = DelayL.ar(sig, ~maxDelay.kr(1), { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
+		sig = DelayL.ar(sig, 3.0, { 1.0.rrand(1.5) } ! ~numOutputChannels * SinOsc.ar(0.2, 0, 0.005, 1)); // Use MIDI encoder A-6
 
 		sig = HPF.ar(sig, 200);
 		sig = MoogVCF.ar(sig, 5500, 0.3);
