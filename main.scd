@@ -8,6 +8,32 @@
 
 
 
+
+
+(
+// Basic reverb & delay
+Ndef(\template, {
+	var input, sig;
+	input = SoundIn.ar(~input4);
+	sig = HPF.ar(input, freq: 30);
+
+	sig = sig * 0.dbamp * ~mainVol.kr(1);
+	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
+	sig = Limiter.ar(sig, 1.0);
+
+	Out.ar(\delBus.kr, sig * 0.0 * EnvGate.new);
+	Out.ar(\revBus.kr, sig * 1.0 * EnvGate.new);
+
+	sig * EnvGate.new;
+}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
+)
+
+Ndef(\template).free;
+
+
+
+
+
 (
 // Horizontal reflection. Shifts your live-input by ~shift
 ~shift = -0.5.midiratio;
@@ -221,30 +247,6 @@ Ndef(\spectrumInterpolation, {
 )
 
 Ndef(\spectrumInterpolation).free;
-
-
-
-
-
-(
-// Template for basic reverb & delay
-Ndef(\template, {
-	var input, sig;
-	input = SoundIn.ar(~input4);
-	sig = HPF.ar(input, freq: 30);
-
-	sig = sig * 0.dbamp * ~mainVol.kr(1);
-	sig = PanX.ar(~numOutputChannels, sig, pos: LFNoise2.kr(~panFreq.kr(1)).range(0.0, 1.0));
-	sig = Limiter.ar(sig, 1.0);
-
-	Out.ar(\delBus.kr, sig * 0.0 * EnvGate.new);
-	Out.ar(\revBus.kr, sig * 1.0 * EnvGate.new);
-
-	sig * EnvGate.new;
-}).set(\delBus, ~delBus, \revBus, ~revBus).play(out: ~outBus).fadeTime_(~ndefFadeTime);
-)
-
-Ndef(\template).free;
 
 
 
